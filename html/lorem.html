@@ -4,30 +4,35 @@
   <head>
     <meta charset="utf-8">
     <title>LoremNews.com</title>
-    <link rel="stylesheet" href="lorem.css">
+    <!-- import bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="lorem.css"> not using this anymore -->
   </head>
   <body>
-    <header>
-      <h1>Lorem News</h1>
-      <span id="motto">The real fake news.</span>
-    </header>
-    <main>
-      <article>
-          <h2>Featured Story</h2>
-          <img src="https://via.placeholder.com/200x200">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam mauris at mattis imperdiet. Etiam sed enim arcu. Etiam at ex non tortor pellentesque egestas in in velit. In tempor arcu felis, eu finibus nulla aliquam ut. Aliquam sodales massa id libero vestibulum accumsan. Donec efficitur nisi molestie convallis pellentesque. Aenean pellentesque tellus non mattis elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean tempus magna turpis, vel luctus lacus tempus sit amet. Morbi scelerisque vehicula tellus, ac molestie ante pharetra at. Etiam vel dapibus justo. Ut iaculis mi et aliquet ornare.</p>
-          <p>Suspendisse lectus sem, suscipit eget est ut, aliquet auctor velit. Cras vulputate magna vitae turpis faucibus dignissim. Nam pharetra ac urna ut tincidunt. Vivamus non ipsum ultrices, accumsan dui sit amet, eleifend nibh. Fusce et nunc ornare, vulputate justo et, tincidunt odio. Ut luctus metus nec ante condimentum, eu posuere odio bibendum. Sed risus leo, convallis eget vulputate iaculis, tincidunt sit amet ex. Fusce eros odio, tincidunt at efficitur at, viverra ut ligula. Vivamus elit odio, sagittis a massa pellentesque, maximus tincidunt leo. Nam vitae justo varius, tempor nibh sagittis, vulputate justo. Maecenas rhoncus sagittis ligula, id molestie sem porttitor nec. Sed tincidunt vehicula ipsum et lobortis. Aenean sit amet lacus at nisi congue cursus. Pellentesque nisl mi, laoreet a elementum eu, maximus a magna.</p>
-      </article>
-    </main>
-    <nav>
-      <h2>See also</h2>
-      <ul>
-        <li><a class="navlink" href="#">Ut efficitur velit id mi consectetur, sit amet lacinia diam facilisis.</a></li>
-        <li><a class="navlink" href="#">Integer ut lectus a lacus pulvinar iaculis eu vel leo.</a></li>
-        <li><a class="navlink" href="#">Donec at lorem pretium nisl malesuada congue.</a></li>
-        <li><a class="navlink" href="#">Aliquam vitae augue ut ex viverra congue.</a></li>
-      </ul>
-    </nav>
-
+    <div class="container-fluid">
+      <header class="jumbotron text-center p-3 mb-3">
+        <h1>Lorem News</h1>
+        <span class="font-italic">The real fake news.</span>
+      </header>
+      <div class="row">
+        <main class="col-md-9">
+          <article>
+              <h2>Featured Story</h2>
+              <img class="float-left mr-3" src="https://via.placeholder.com/200x200">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam mauris at mattis imperdiet. Etiam sed enim arcu. Etiam at ex non tortor pellentesque egestas in in velit. In tempor arcu felis, eu finibus nulla aliquam ut. Aliquam sodales massa id libero vestibulum accumsan. Donec efficitur nisi molestie convallis pellentesque. Aenean pellentesque tellus non mattis elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean tempus magna turpis, vel luctus lacus tempus sit amet. Morbi scelerisque vehicula tellus, ac molestie ante pharetra at. Etiam vel dapibus justo. Ut iaculis mi et aliquet ornare.</p>
+              <p>Suspendisse lectus sem, suscipit eget est ut, aliquet auctor velit. Cras vulputate magna vitae turpis faucibus dignissim. Nam pharetra ac urna ut tincidunt. Vivamus non ipsum ultrices, accumsan dui sit amet, eleifend nibh. Fusce et nunc ornare, vulputate justo et, tincidunt odio. Ut luctus metus nec ante condimentum, eu posuere odio bibendum. Sed risus leo, convallis eget vulputate iaculis, tincidunt sit amet ex. Fusce eros odio, tincidunt at efficitur at, viverra ut ligula. Vivamus elit odio, sagittis a massa pellentesque, maximus tincidunt leo. Nam vitae justo varius, tempor nibh sagittis, vulputate justo. Maecenas rhoncus sagittis ligula, id molestie sem porttitor nec. Sed tincidunt vehicula ipsum et lobortis. Aenean sit amet lacus at nisi congue cursus. Pellentesque nisl mi, laoreet a elementum eu, maximus a magna.</p>
+          </article>
+        </main>
+        <nav class="col-md-3">
+          <h2>See also</h2>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="#">Ut efficitur velit id mi consectetur, sit amet lacinia diam facilisis.</a></li>
+            <li class="list-group-item"><a href="#">Integer ut lectus a lacus pulvinar iaculis eu vel leo.</a></li>
+            <li class="list-group-item"><a href="#">Donec at lorem pretium nisl malesuada congue.</a></li>
+            <li class="list-group-item"><a href="#">Aliquam vitae augue ut ex viverra congue.</a></li>
+          </ul>
+        </nav>
+      </div
+    </div>
   </body>
 </html>
