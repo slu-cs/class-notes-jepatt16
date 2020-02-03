@@ -19,3 +19,18 @@ console.log(circle.color); // returns undefined, does not crash
 circle.color = 'blue'; // add properties to object
 console.log(circle.color);
 
+const languages = ['HTML', 'CSS', 'Spanish', 'JS', 25];
+console.log(languages);
+
+for (let i = 0; i < languages; i++){
+	console.log(languages[i]);
+};
+
+languages[0] = 'html';
+languages.push('MongoDB');
+
+for (const lang of languages){
+	console.log(lang);
+};
+
+
