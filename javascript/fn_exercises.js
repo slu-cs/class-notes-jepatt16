@@ -57,6 +57,9 @@ console.log(dune.check_auths('Brian Herbert'));
 
 const range = function(m, n, s){
   const nums = [];
+  if (m === undefined) {
+    return [];
+  };
   if (n === undefined){
     n = m;
     m = 0;
@@ -73,3 +76,4 @@ const range = function(m, n, s){
 console.log(range(3, 10));
 console.log(range(5));
 console.log(range(0, 20, 3));
+console.log(range());
