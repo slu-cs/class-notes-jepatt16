@@ -2,8 +2,9 @@
 // asynchronous calls handle the result whenever it happens to come
 // async is good for web programming
 
-// import statement
+// import statements
 const readline = require('readline');
+const fs = require('fs');
 
 // console stuff
 const user = readline.createInterface({
@@ -12,5 +13,18 @@ const user = readline.createInterface({
 });
 
 user.question('Enter a filename: ', function(filename){
-  console.log(filename);
+  // console.log(filename);
+  const file = readline.createInterface({
+    input: fs.createReadStream(filename)
+  });
+  file.on('line', function(line){
+    console.log(line);
+  });
+  // end the program when the file closes
+  file.on('close', _ => process.exit(0));
+
+  // console.log('waiting');
 });
+
+// proof that the above call is asynchronous
+// console.log('\nnot waiting');
