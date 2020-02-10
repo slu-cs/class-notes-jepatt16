@@ -11,10 +11,10 @@ const Professor = new mg.Schema({
 });
 
 // speed up queries on all fields w/ indices
-Professor.inxt({name: 1});
-Professor.inxt({rank: 1});
-Professor.inxt({started: 1});
-Professor.inxt({courses: 1});
+Professor.index({name: 1});
+Professor.index({rank: 1});
+Professor.index({started: 1});
+Professor.index({courses: 1});
 
 // compile and export the schema as a modelhistory
 module.exports = mg.model('Professor', Professor);

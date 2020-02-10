@@ -4,7 +4,7 @@
 // imports
 const mg = require('mongoose');
 const connect = require('./db.js');
-const Professor = require('.schema.js');
+const Professor = require('./schema.js');
 
 connect(); // database time
 

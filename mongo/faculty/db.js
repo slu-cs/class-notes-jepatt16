@@ -1,7 +1,7 @@
 // js file to connect to a database
 // a database about faculty
 
-const mg = require('mongoose'); // must install mongoose
+const mongoose = require('mongoose'); // must install mongoose
 
 // Export this function
 module.exports = function(){

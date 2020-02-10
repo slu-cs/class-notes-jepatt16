@@ -3,7 +3,7 @@
 // imports
 const mg = require('mongoose');
 const connect = require('./db.js');
-const Professor = require('.schema.js');
+const Professor = require('./schema.js');
 
 connect(); // database time
 
@@ -61,7 +61,7 @@ mg.connection.dropDatabase(function(){
     if (error) console.error(error.stack);
     torrey.save(function(error){
       if (error) console.error(error.stack);
-      clee.save(function(){
+      lee.save(function(){
         if (error) console.error(error.stack);
         mg.connection.close(function(){
           console.log('Connection closed.')
