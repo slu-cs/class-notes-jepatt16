@@ -27,24 +27,14 @@ const queries = [
 ];
 
 Promise.all(queries)
-<<<<<<< HEAD
   .then(function(results){
   	console.log('Names in order: ', results[0].map(p => p.name));
     console.log('Started most recently: ', results[0][0].name);
 		console.log('Started in 2003: ', results[2].map(p => p.name));
 		console.log('Teaches 362: ', results[3].map(p => p.name));
-		mongoose.connection.close();
+		mg.connection.close();
 	})
 	.catch(function(error) {
     console.error(error.stack);
   });
-=======
-	.then(function(results){
-		console.log('Names in order: ', results[0].map(p => p.name));
-		console.log('Started most recently: ', results[0][0].name);
-	})
-	.catch(function(error) {
-		console.error(error.stack);
-	});
 
->>>>>>> 91edf0e17cb0da8c7a9e2988734c152b4e226c9e
