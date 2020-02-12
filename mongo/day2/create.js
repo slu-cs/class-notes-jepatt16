@@ -51,22 +51,31 @@ const lee = new Professor({
   ]
 });
 
-// delete old data
-// takes a function as a command to do once the drop
-// command has been completed
-// the pyramid of doom/callback hell
-mg.connection.dropDatabase(function(){
-  // save data
-  harcourt.save(function(error){
-    if (error) console.error(error.stack);
-    torrey.save(function(error){
-      if (error) console.error(error.stack);
-      lee.save(function(){
-        if (error) console.error(error.stack);
-        mg.connection.close(function(){
-          console.log('Connection closed.')
-        });
-      });
-    });
-  });
-});
+// alternative to pyramid of doom
+// mg.connection.dropDatabase()
+//   .then(function(){
+//     return harcourt.save();
+//   })
+//   .then(function(){
+//     return torrey.save();
+//   })
+//   .then(function(){
+//     return lee.save();
+//   })
+//   .then(function(){
+//     console.log('Database is ready.');
+//     return mongoose.connection.close();
+//   })
+//   .catch(function(error){
+//     console.error(error.stack);
+//   })
+// 
+
+// even better w/ arrows
+mg.connection.dropDatabase()
+  .then(_ => harcourt.save())
+  .then(_ => torrey.save())
+  .then(_ => lee.save())
+  .then(_ => mongoose.connection.close())
+  .then(_ => console.log('Database is ready.'))
+  .catch(error => console.log(error.stack));
