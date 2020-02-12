@@ -27,6 +27,7 @@ const queries = [
 ];
 
 Promise.all(queries)
+<<<<<<< HEAD
   .then(function(results){
   	console.log('Names in order: ', results[0].map(p => p.name));
     console.log('Started most recently: ', results[0][0].name);
@@ -37,3 +38,13 @@ Promise.all(queries)
 	.catch(function(error) {
     console.error(error.stack);
   });
+=======
+	.then(function(results){
+		console.log('Names in order: ', results[0].map(p => p.name));
+		console.log('Started most recently: ', results[0][0].name);
+	})
+	.catch(function(error) {
+		console.error(error.stack);
+	});
+
+>>>>>>> 91edf0e17cb0da8c7a9e2988734c152b4e226c9e
