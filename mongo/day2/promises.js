@@ -37,4 +37,3 @@ Promise.all(queries)
 	.catch(function(error) {
     console.error(error.stack);
   });
-
