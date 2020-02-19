@@ -1,0 +1,48 @@
+<!-- messin around with jquery-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>2/19/20</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <form>
+            <input type="text" name="left">
+            <input type="text" name="right">
+            <button type="submit">Submit</button>
+        </form>
+        <div class="first">
+            <img id="A" src="http://via.placeholder.com/100x100">
+            <img id="B" src="http://via.placeholder.com/100x100">
+        </div>
+        <div class="second">
+            <button id="C">Click me</button>
+            <button id="D">Click me</button>
+        </div>
+        <!-- list where clicks go -->
+        <ul id="clicks">
+        </ul>
+        <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+$('form').on('submit', function(event){
+  event.preventDefault();
+  const form = $(this);
+  form.find('input').remove();
+});
+
+$(document).on('click', 'img', function(event){
+  event.preventDefault();
+  $(this).closest('div').remove();
+});
+
+$('.second').on('click', 'button', function(event){
+  event.preventDefault();
+  const id = $(this).attr('id');
+  const li = $(`<h1>Clicked button ${id}.</h1>`); // making an html object w a string
+  $('#clicks').append(li); // this rules
+});
+        </script>
+        
+    </body>
+</html>
