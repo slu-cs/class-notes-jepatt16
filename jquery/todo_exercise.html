@@ -1,0 +1,48 @@
+<!-- To practice with JQuery, create a webpage that serves as an interactive to-do list.
+
+The page should:
+
+Display a list of "things to do."
+Let you add an item to the list.
+Let you delete an item from the list.
+Don't worry about styling, unless you end up with time to spare. -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>agenda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <main>
+      <form>
+        <input type='text'>
+        <button type='submit'>Add</button>
+      </form>
+      <p>Things to do</p>
+      <ul id='agenda'></ul>
+    </main>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+      $('form').on('submit', function(event){
+        // get object from event, prevent default
+        const form = $(this);
+        event.preventDefault();
+        // jquery object of input in form
+        const input = form.find('input');
+        const value = $(input).val();
+        const li = $(`<li id='button'>${value}\t</li>`);
+        const b = $('<button>Remove</button>');
+        li.append(b);
+        $('#agenda').append(li);
+        // reset text box
+        $(input).val('');
+      });
+      $('ul').on('click', 'button', function(event){
+        const form = $('this');
+        event.preventDefault();
+        console.log(form.attr('id'));
+      });
+    </script>
+  </body>
+</html>
