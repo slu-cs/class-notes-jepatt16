@@ -1,0 +1,49 @@
+<!-- jquery loops -->
+<!-- Basic structure of a webpage-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2/24/20</title>
+    <!-- import bootstrap stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <form>
+      <input type='text'>
+      <input type='text'>
+      <button type='submit'>Submit</button>
+    </form>
+    <div id='history'></div>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+      // global variable
+      let n = 0;
+      $('form').on('submit', function(event){
+        // get object from event, prevent default
+        const form = $(this);
+        event.preventDefault();
+        // make a paragraph to label the list by number
+        const p = $(`<p>Submit #${n}</n>`);
+        // new list
+        const list = $(`<ul id='${n}'></ul>`);
+        // jquery object of alll inputs in form
+        const inputs = form.find('input');
+        // loop thru inputs
+        for (const i of inputs){
+          // make list item
+          const li = $(`<li>${$(i).val()}</li>`);
+          // add to list
+          list.append(li);
+          // reset input text
+          $(i).val('');
+        };
+        // increment count
+        n ++;
+        // add objects to page
+        $('#history').append(p);
+        $('#history').append(list);
+      });
+    </script>
+  </body>
+</html>
