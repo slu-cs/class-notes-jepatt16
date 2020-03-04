@@ -30,6 +30,10 @@ app.get('/', function(req, res){
   `);
 });
 
+// routing
+// cs-linuxlab-31.stlawu.edu:3000/cakes/
+app.use('/cakes', require('./cakes.js')); //send cake requests to another file
+app.use('/shakes', require('./shakes.js'));
 
 // unhandled requests
 app.use(function(req, res, next){
