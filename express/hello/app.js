@@ -7,7 +7,7 @@ const app = express();
 // respond to a request
 // 'get' here is the http method
 app.get('/', function(req, resp){
-  response.send('jello world');
+  resp.send('jello world');
 });
 
 // start the server on port 3000
