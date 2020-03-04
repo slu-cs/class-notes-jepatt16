@@ -1,0 +1,11 @@
+{
+  "name": "bakery",
+  "version": "1.0.0",
+  "description": "simple bakery homepage with error handling",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jpatt16",
+  "license": "ISC"
+}
