@@ -1,30 +1,32 @@
-// router for cake -related requests
+
+// Router for cake-related requests
 const express = require('express');
 
-// create router
+// Create the router
 const router = express.Router();
 
-// cs-linuxlab-31.stlawu.edu:3000/cakes/
-router.get('/', function(req, res){
-  res.send(`
-      <h1>Cakes</h1>
-      <ul>
-        <li><a href "/cakes/vanilla">Vanilla</a></li>
-        <li><a href "/cakes/choc">Chocolate</a></li>
-      </ul>
-    `);
+// Pretend database collection
+const cakes = [
+  {id: 'vanilla', flavor: 'Vanilla'},
+  {id: 'chocolate', flavor: 'Chocolate'}
+];
+
+// cs-linuxlab-##.stlawu.edu:3000/cakes/
+router.get('/', function(request, response) {
+  response.render('cakes/index', {cakes: cakes});
 });
 
-router.get(':flavor', function(req, res, next){
-  if (req.params.flavor === 'vanilla'){
-    res.send('ye we got em');
+// cs-linuxlab-##.stlawu.edu:3000/cakes/id
+router.get('/:id', function(request, response, next) {
+
+  // Pretend database lookup
+  const cake = cakes.find(cake => cake.id === request.params.id);
+
+  if (!cake) {
+    next(); // Pass on this request
+  } else {
+    response.render('cakes/detail', {cake: cake});
   }
-  else if (req.params.flavor === 'choc'){
-    res.send('ye we got those too');
-  }
-  else {
-    next();
-  };
 });
 
 module.exports = router;

@@ -1,51 +1,47 @@
-// bakery web server
+// Bakery web server
 const express = require('express');
 
-// create server
+// Create the server
 const app = express();
 
-// stop all the favicon requests
-app.get('/favicon.ico', function(req, res){
-  res.status(204).end(); // we got nothin for ya but it's ok
+// Use a view engine
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
+// Ignore icon requests
+app.get('/favicon.ico', function(request, response) {
+  response.status(204).end();
 });
 
-// log requests to console
-app.use(function(req, res, next){
-  console.log('\n*************', new Date().toLocaleTimeString(),
-              '\nmethod: ', req.method,
-              '\npath: ', req.url,
-              '\nbody: ', req.body,
-            );
-  next();
+// Log requests to the console
+app.use(function(request, response, next) {
+  console.log('---------------------', new Date().toLocaleTimeString());
+  console.log(request.method, request.url);
+  console.log('Body =', request.body);
+  next(); // Keep handling this request
 });
 
-// cs-linuxlab-31.stlawu.edu:3000/
-app.get('/', function(req, res){
-  res.send(`
-    <h1>Bakery</h1>
-    <ul>
-      <li><a href='/cakes'>Cakes</a></li>
-      <li><a href='/shakes'>Shakes</a></li>
-    </ul>
-  `);
+// cs-linuxlab-##.stlawu.edu:3000/
+app.get('/', function(request, response) {
+  response.render('index');
 });
 
-// routing
-// cs-linuxlab-31.stlawu.edu:3000/cakes/
-app.use('/cakes', require('./cakes.js')); //send cake requests to another file
-app.use('/shakes', require('./shakes.js'));
+// Routing
+app.use('/cakes', require('./cakes.js'));
+app.use('/pies', require('./pies.js'));
 
-// unhandled requests
-app.use(function(req, res, next){
-  console.log('404 page not found :(');
-  res.status(404).send('404 page not found :(');
+// Handle undefined routes
+app.use(function(request, response, next) {
+  console.log('Replied with 404');
+  response.status(404).end();
 });
 
-// server error handling
-app.use(function(error, rq, res, next){
+// Handle other errors
+app.use(function(error, request, response, next) {
   console.error(error.stack);
-  res.status(500).send(error.message); // DO NOT DO THIS IN REAL CODE
-})
+  response.status(500).send(error.message);
+});
 
+// Start the server
 app.listen(3000);
-console.log('the server will see you now');
+console.log('Server is ready.');
